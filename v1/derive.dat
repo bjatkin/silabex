@@ -1,0 +1,45 @@
+# derived v2
+
+# vowels are indicated by using the @ symbol
+# all other characters in the expression are assumed to be vowels
+# unless it is explicitly indicated otherwise
+@O    | E.d
+@U    | A.r
+@AE   | A E
+@AU   | A U
+@OE   | O E
+@OU   | O U
+@AOE  | AO E
+@AOU  | AO U
+@AEU  | AE U
+@OEU  | OE U
+@AOEU | A O E U
+
+# initial consonants are indicated by using the ^ symbol
+# :all is short for [(:hang, :stand, :core, :tall), (:initial, :solo)]
+# [] takes a list of strings and generates all possible combinations of that value which
+# then generates a new rule for each combination
+# () takes a list of strings and generates a new rule for each string
+^K:all  | T:all.x
+^KW:all | TP:all.x
+^KR:all | TH:all.x
+^KH:all | TR:all.y
+^R:all  | T:all.xy
+^H:all  | T:all.y
+
+^S[K,T,W,P,R,H]:tall  | S:hang 0:stand
+^[K,T,W,P,R,H]*:tall  | 0:hang *:stand
+^S[K,T,W,P,R,H]*:tall | S:hang 0:core *:stand
+
+# final consonants can reference initial consonants and are indicated by using the $ symbol
+# :all can be omitted as it is the default for all named strokes unless otherwise specified
+# rules are generated in order and first executed rule wins
+$B | ^T.xr
+
+# the % symbole takes a name for the final consonand and converts it back to the name for the
+# related initial consonant and vice versa
+$[RF, B, P, G, L, S, T, ZD] | 0%.r
+
+$(R, F)[B, P, G, L, S, T]:tall       | 0:hang 1:stand
+$[B, P, G, L, S, T](Z, D):tall       | 0:hang 1:stand
+$(R, F)[B, P, G, L, S, T](Z, D):tall | 0:hang 1:core 2:stand
