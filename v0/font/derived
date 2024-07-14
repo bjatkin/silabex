@@ -1,0 +1,55 @@
+# Any line that starts with # is a comment .
+# All clusters are lower case and must apear in the correct order (e.g. 'oe' is a syntax error).
+#
+# Pipes seperate the cluster name from it's derivation.
+# A clusters derivation is a list of existing clusters that can be combined to form the new cluster.
+# Cluster names are space seperated.
+#
+# Clusters can include the following modifiers after a `.` to indicate transformations
+# - d: Bump the cluster down (the magnitude of the bump depends on the group the cluster belongs to).
+#      For example vowels will be bumped down from the top vowel line to the bottom vowel line.
+#      Consonants on the other hand will be bumped from hangin off the top consonant line to standing on the bottom consonant line
+#      If the stroke is already on the bottom of the character this is an error
+# - u: The inverse of d
+# - r: The same as D/U but for moving strokes to the right.
+#      For vowels the behavior moves the stroke from the left vowel line to the right vowel line.
+#      For Consonants this moves the stroke from the initial consonant slot to the final consonant slot.
+# - l: The inverse of r
+# - x: Mirrior the stroke along the x axis.
+# - x: Mirrior the stroke along the y axis.
+#
+# Just because a stroke has a derived definition does not mean the stroke need be derived.
+# If an explicit definition for the stroke is provided in the template SVG file, that will used instead.
+
+# VOWELS 
+# standard order for vowels is A, O, E, U
+VOWEL
+O    | E.d
+U    | A.r
+AE   | A E
+AU   | A U
+OE   | O E
+OU   | O U
+AOE  | AO E
+AOU  | AO U
+AEU  | AE U
+OEU  | OE U
+AOEU | A O E U
+
+# INITIALS 
+# standard order for initials is k, t, w, p, r, h
+# s and * are not included as clusters involving those strokes can be automatically derived
+INITIAL
+K  | T.x
+KW | TP.x
+KR | TH.x
+KH | TR.y
+
+R  | T.xy
+
+H  | T.y
+
+# FINALS
+# standard order for finals is b, p, g, l, s, t
+# r, f, z, and d are not included as clusters involving those strokes can be automatically derived
+FINAL
