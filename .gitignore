@@ -1,0 +1,6 @@
+# data repo
+/dictionary
+
+# python 
+.venv
+data
