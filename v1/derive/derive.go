@@ -102,6 +102,7 @@ func NewCharBuilder() *CharBuilder {
 		builders: []builder{
 			buildSimpleVowels,
 			buildComplexVowels,
+			buildComplexIntitials,
 			buildConsonantHeaderAndFooter,
 		},
 	}
@@ -154,6 +155,11 @@ func find(strokes stroke.StrokeSlice, name string, filters ...filter) stroke.Str
 	}
 
 	return ret
+}
+
+// TODO: remove
+func Temp(names []string) []string {
+	return combinations(names)
 }
 
 func combinations(names []string) []string {
