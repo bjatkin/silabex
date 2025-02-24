@@ -1,26 +1,16 @@
 [project]
-name = "spelling"
+name = "phoneme"
 version = "0.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
-    "ipykernel>=6.29.5",
-    "phoneme",
-    "polars>=1.23.0",
     "pronouncing>=0.2.0",
     "pydantic>=2.10.6",
-    "requests>=2.32.3",
     "setuptools>=75.8.0",
-    "tqdm>=4.67.1",
-    "wikipedia-api>=0.8.1",
 ]
 
 [dependency-groups]
 dev = [
-    "mypy>=1.15.0",
     "pytest>=8.3.4",
 ]
-
-[tool.uv.sources]
-phoneme = { path = "../phoneme" }
