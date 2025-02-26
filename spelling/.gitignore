@@ -1,0 +1,11 @@
+# data repo
+/dictionary
+/data
+
+# python
+.venv
+__pycache__
+*.pytest-cache
+*.mypy-cache
+*.egg-info
+*.egg

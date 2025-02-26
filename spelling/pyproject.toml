@@ -6,7 +6,6 @@ readme = "README.md"
 requires-python = ">=3.12"
 dependencies = [
     "ipykernel>=6.29.5",
-    "phoneme",
     "polars>=1.23.0",
     "pronouncing>=0.2.0",
     "pydantic>=2.10.6",
@@ -21,6 +20,3 @@ dev = [
     "mypy>=1.15.0",
     "pytest>=8.3.4",
 ]
-
-[tool.uv.sources]
-phoneme = { path = "../phoneme" }
