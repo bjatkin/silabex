@@ -9,3 +9,4 @@ __pycache__
 *.mypy-cache
 *.egg-info
 *.egg
+*.ruff_cache

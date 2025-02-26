@@ -16,7 +16,7 @@ def split_words(text: str) -> list[str]:
 
     valid = "abcdefghijklmnopqrstuvwxyz'"
     valid += valid.upper()
-    boundry = "()/,:;.?!*$ \t\n"
+    boundry = "()/,:;.?!*$#\\ \t\n"
 
     all_words = []
     current_word = ""
